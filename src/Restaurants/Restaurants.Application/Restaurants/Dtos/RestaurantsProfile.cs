@@ -22,7 +22,6 @@ namespace Restaurants.Application.Restaurants.Dtos
                     }
                 ));
 
-
             CreateMap<Restaurant, RestaurantDto>()
                 .ForMember(d => d.City, opt =>
                     opt.MapFrom(src => src.Address == null ? null : src.Address.City))
