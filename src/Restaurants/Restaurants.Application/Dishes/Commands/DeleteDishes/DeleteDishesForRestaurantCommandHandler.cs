@@ -9,8 +9,7 @@ namespace Restaurants.Application.Dishes.Commands.DeleteDishes
 {
     public class DeleteDishesForRestaurantCommandHandler(ILogger<DeleteDishesForRestaurantCommandHandler> logger,
         IRestaurantsRepository restaurantsRepository,
-        IDishesRepository dishesRepository,
-        IMapper mapper) : IRequestHandler<DeleteDishesForRestaurantCommand>
+        IDishesRepository dishesRepository) : IRequestHandler<DeleteDishesForRestaurantCommand>
     {
         public async Task Handle(DeleteDishesForRestaurantCommand request, CancellationToken cancellationToken)
         {

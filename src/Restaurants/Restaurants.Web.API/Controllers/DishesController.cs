@@ -8,8 +8,8 @@ using Restaurants.Application.Dishes.Queries.GetDishesForRestaurant;
 
 namespace Restaurants.Web.API.Controllers
 {
-    [Route("api/restaurants/{restaurantId}/dishes")]
     [ApiController]
+    [Route("api/restaurants/{restaurantId}/dishes")]
     public class DishesController(IMediator mediator) : ControllerBase
     {
         [HttpPost]
