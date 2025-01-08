@@ -1,10 +1,12 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Restaurants.Application.Dishes.Commands.CreateDish;
 using Restaurants.Application.Dishes.Commands.DeleteDishes;
 using Restaurants.Application.Dishes.Dto;
 using Restaurants.Application.Dishes.Queries.GetDishByIdForRestaurant;
 using Restaurants.Application.Dishes.Queries.GetDishesForRestaurant;
+using Restaurants.Infrastucture.Authorization;
 
 namespace Restaurants.Web.API.Controllers
 {
@@ -22,6 +24,7 @@ namespace Restaurants.Web.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Policy = PolicyNames.AtLeast20)]
         public async Task<ActionResult<IEnumerable<DishDto>>> GetAllForRestaurant([FromRoute] int restaurantId)
         {
             var dishes = await mediator.Send(new GetDishesForRestaurantQuery(restaurantId));

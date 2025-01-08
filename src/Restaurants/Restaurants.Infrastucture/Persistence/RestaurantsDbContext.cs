@@ -7,8 +7,8 @@ namespace Restaurants.Infrastucture.Persistence
     internal class RestaurantsDbContext(DbContextOptions<RestaurantsDbContext> options) 
         : IdentityDbContext<User>(options)
     {
-        internal DbSet<Restaurant> Restaurants { get; set; }
-        internal DbSet<Dish> Dishes { get; set; }
+        internal DbSet<Restaurant> Restaurants { get; set; } = default!;
+        internal DbSet<Dish> Dishes { get; set; } = default!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

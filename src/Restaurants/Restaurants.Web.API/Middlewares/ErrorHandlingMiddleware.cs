@@ -1,5 +1,4 @@
-﻿
-using Restaurants.Domain.Exceptions;
+﻿using Restaurants.Domain.Exceptions;
 
 namespace Restaurants.Web.API.Middlewares
 {
