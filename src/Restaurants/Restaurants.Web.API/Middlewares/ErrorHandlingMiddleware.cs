@@ -12,10 +12,15 @@ namespace Restaurants.Web.API.Middlewares
             }
             catch (NotFoundException notfound)
             {
-                context.Response.StatusCode = 400;
+                context.Response.StatusCode = 404;
                 await context.Response.WriteAsync(notfound.Message);
 
                 logger.LogWarning(notfound.Message);
+            }
+            catch (ForbidException)
+            {
+                context.Response.StatusCode = 403;
+                await context.Response.WriteAsync("Access forbiden");
             }
             catch (Exception ex)
             {
